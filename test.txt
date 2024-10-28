@@ -1,0 +1,9 @@
+inteiro aww = 1;
+inteiro xk = 666;
+flutuante k; 
+xk = 999;
+se (a == 1) { imprimir ("dudu é fofo\n"); } senao { imprimir (xk); }
+se (a == 1) { imprimir ("Eu amo-te\n"); }
+se (a == 1) { imprimir ("Eu sou fofo\n"); }
+imprimir ("olá mundo!\n");
+enquanto (a == 1) { imprimir ("OK"); }
