@@ -48,8 +48,8 @@ Sesenao::Sesenao(std::string str){
   //
 
   // verificar o conteúdo das primeiras chaves
-  Analisador analisador(y);
-  y = analisador.getCode();
+  Lexico lexico(y);
+  y = lexico.getCode();
   //
 
   tmp = std::string("if") + std::string(" (") + x + std::string(") ") + std::string("{") + std::string("\n") +  y + std::string("\n}");
@@ -72,8 +72,8 @@ Sesenao::Sesenao(std::string str){
       z.erase(std::remove(z.begin(), z.end(), c1[i]), z.end());
 
     // verificar o conteúdo das segundas chaves
-    Analisador analisador(z);
-    z = analisador.getCode();
+    Lexico lexico(z);
+    z = lexico.getCode();
     //
 
     tmp = tmp + std::string(" else {\n") + z + std::string("\n}"); 

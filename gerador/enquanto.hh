@@ -1,7 +1,8 @@
 #ifndef ENQUANTO
 #define ENQUANTO
 #include "gerador.hh"
-#include "../analisador.hh"
+#include "../analisador/lexico.hh"
+#include "../analisador/sintaxico.hh"
 //#include <regex>
 //#include <iostream>
 

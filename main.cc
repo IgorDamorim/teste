@@ -1,14 +1,14 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>
-#include "analisador.hh"
+#include <iterator>
+#include <string>
+#include "analisador/lexico.hh"
+#include "analisador/sintaxico.hh"
+#include "analisador/semantico.hh"
 
 int main(){
-  std::ifstream file("test.txt");
-  std::string line;
+  Lexico lexico;
+  std::cout << lexico.getCode() << std::endl;
 
-  while(getline(file, line)){
-    Analisador analisador(line);
-    std::cout << analisador.getCode() << std::endl;
-  }
 }

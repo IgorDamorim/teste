@@ -1,9 +1,12 @@
 inteiro aww = 1;
+
 inteiro xk = 666;
-flutuante k; 
+
+flutuante k;
 xk = 999;
 se (a == 1) { imprimir ("Olá pessoal\n"); } senao { imprimir (xk); }
 se (a == 1) { imprimir ("A3 da Unifacs\n"); }
 se (a == 1) { imprimir ("Trabalho\n"); }
 imprimir ("olá mundo!\n");
 enquanto (a == 1) { imprimir ("OK"); }
+k = 9.9;

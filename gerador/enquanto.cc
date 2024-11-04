@@ -34,8 +34,8 @@ Enquanto::Enquanto(std::string str){
   tmp.erase(end, tmp.length());
   tmp.erase(0, start);
 
-  Analisador analisador(tmp);
-  tmp = analisador.getCode();
+  Lexico lexico(tmp);
+  tmp = lexico.getCode();
   
   this->str = this->str + tmp + "\n}";
   
