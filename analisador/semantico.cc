@@ -42,18 +42,89 @@ void Semantico::check(std::string str){
   } else if (std::regex_search(str, m, std::regex("se\\s+\\([^)]*\\)\\s+\\{[^}]*\\}\\s+senao\\s+\\{[^}]*\\}"))){
 
     gerador = new Sesenao(str);
-    this->str = this->str + gerador->getCode() + "\n";
+    
+    for(int i = 0; i < str.length(); i++){
+      if(str[i] == '('){
+	str.erase(0, i+1);
+      } else if (str[i] == ')'){
+	str.erase(i);
+      }
+    }
 
+    for(int i = 0; i < str.length(); i++){
+      if(str[i] == '=' || str[i] == '!' || str[i] == '>' || str[i] == '<'){
+	str.erase(i, str.length());
+      }
+    }
+    str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
+
+    if(count(inteiro.begin(), inteiro.end(), str) || count(flutuante.begin(), flutuante.end(), str)){
+      this->str = this->str + gerador->getCode() + "\n";
+    } else {
+      std::cout << "A variável de se não foi declarada" << std::endl;
+    }
+
+    
   } else if (std::regex_search(str, m, std::regex("se\\s+\\([^)]*\\)\\s+\\{[^}]*\\}"))){
 
     gerador = new Sesenao(str);
-    this->str = this->str + gerador->getCode() + "\n";
+        
+    for(int i = 0; i < str.length(); i++){
+      if(str[i] == '('){
+	str.erase(0, i+1);
+      } else if (str[i] == ')'){
+	str.erase(i);
+      }
+    }
 
+    for(int i = 0; i < str.length(); i++){
+      if(str[i] == '=' || str[i] == '!' || str[i] == '>' || str[i] == '<'){
+	str.erase(i, str.length());
+      }
+    }
+    str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
+    
+    if(count(inteiro.begin(), inteiro.end(), str) || count(flutuante.begin(), flutuante.end(), str)){
+      this->str = this->str + gerador->getCode() + "\n";
+    } else {
+      std::cout << "A variável de se não foi declarada" << std::endl;
+    }   
+    
   } else if (std::regex_search(str, m, std::regex("enquanto\\s+\\([^)]*\\)\\s+\\{[^}]*\\}"))){
 
     gerador = new Enquanto(str);
-    this->str = this->str + gerador->getCode() + "\n";
 
+    int start, end;
+    
+    for(int i = 0; i < str.length(); i++){
+      if(str[i] == '('){
+	start = i + 1;
+	//str.erase(0, i + 1);
+      } else if(str[i] == ')'){
+	end = i;
+	//str.erase(i, str.length());
+	break;
+      }
+    }
+
+    str.erase(end, str.length());
+    str.erase(0, start);
+
+    for(int i = 0; i < str.length(); i++){
+      if(str[i] == '=' || str[i] == '!' || str[i] == '>' || str[i] == '<'){
+	str.erase(i, str.length());
+      }
+    }
+    
+    str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
+    
+    if(count(inteiro.begin(), inteiro.end(), str) || count(flutuante.begin(), flutuante.end(), str)){
+      this->str = this->str + gerador->getCode() + "\n";
+    } else {
+      std::cout << "Variável de enquanto não foi declarada" << str << std::endl;
+    }   
+
+    
   } else if (std::regex_search(str, m, std::regex("digitar\\s+\\([A-Za-z0-9]+\\)\\;"))){
 
     gerador = new Digitar(str);
