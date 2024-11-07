@@ -52,7 +52,7 @@ Sesenao::Sesenao(std::string str){
   y = lexico.getCode();
   //
 
-  tmp = std::string("if") + std::string(" (") + x + std::string(") ") + std::string("{") + std::string("\n") +  y + std::string("\n}");
+  tmp = std::string("\tif") + std::string(" (") + x + std::string(") ") + std::string("{") + std::string("\n\t") +  y + std::string("\t}");
 
   
   // extrair o conteúdo das segundas chaves (apenas se-senao)
@@ -76,7 +76,7 @@ Sesenao::Sesenao(std::string str){
     z = lexico.getCode();
     //
 
-    tmp = tmp + std::string(" else {\n") + z + std::string("\n}"); 
+    tmp = tmp + std::string(" else {\n") + std::string("\t") + z + std::string("\t}"); 
   }
 
   

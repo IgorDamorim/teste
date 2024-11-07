@@ -5,5 +5,5 @@ Inicializacao::Inicializacao(std::string str){
 }
 
 std::string Inicializacao::getCode(){
-  return this->str;
+  return "\t" + this->str;
 }

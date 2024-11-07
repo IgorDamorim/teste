@@ -12,5 +12,5 @@ Imprimir::Imprimir(std::string str){
 }
 
 std::string Imprimir::getCode(){
-  return this->str;
+  return "\t" + this->str;
 }

@@ -10,6 +10,8 @@
 #include "../gerador/digitar.hh"
 #include "../gerador/imprimir.hh"
 #include "../gerador/inicializacao.hh"
+#include "../gerador/banana.hh"
+#include "../gerador/para.hh"
 #include <cstring>
 #include <fstream>
 #include <string>
@@ -19,6 +21,7 @@ class Semantico{
   std::smatch m;
   std::vector<std::string> inteiro;
   std::vector<std::string> flutuante;
+  std::vector<std::string> banana;
 public:
   Gerador* gerador = NULL; 
   Semantico();

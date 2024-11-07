@@ -5,9 +5,13 @@ void Lexico::check(std::string str){
     //
   } else if (std::regex_search(str, m, std::regex("flutuante\\s+"))){
     //
+  } else if (std::regex_search(str, m, std::regex("banana\\s+"))){
+    //
   } else if (std::regex_search(str, m, std::regex("se\\s+"))){
     //
   } else if (std::regex_search(str, m, std::regex("enquanto\\s+"))){
+    //
+  } else if (std::regex_search(str, m, std::regex("para\\s+"))){
     //
   } else if (std::regex_search(str, m, std::regex("digitar\\s+"))){
     //
@@ -16,6 +20,8 @@ void Lexico::check(std::string str){
   } else if (std::regex_search(str, m, std::regex("[A-Za-z]+\\s+=\\s+[A-Za-z0-9]+;"))){
     //
   } else if (std::regex_search(str, m, std::regex("[A-Za-z]+\\s+=\\s+[0-9]*\\.[0-9]+;"))){
+    //
+  } else if (std::regex_search(str, m, std::regex("[A-Za-z]+\\s+=\\s+\"[^\"]*\""))){
     //
   } else if (str == ""){
     //

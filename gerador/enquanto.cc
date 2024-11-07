@@ -17,7 +17,7 @@ Enquanto::Enquanto(std::string str){
   tmp.erase(end, tmp.length());
   tmp.erase(0, start);
 
-  this->str = "while (" + tmp + ") {\n";
+  this->str = "\twhile (" + tmp + ") {\n";
 
   tmp = str;
 
@@ -37,7 +37,7 @@ Enquanto::Enquanto(std::string str){
   Lexico lexico(tmp);
   tmp = lexico.getCode();
   
-  this->str = this->str + tmp + "\n}";
+  this->str = this->str + "\t" + tmp + "\t}";
   
 }
 

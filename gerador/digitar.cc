@@ -12,5 +12,5 @@ Digitar::Digitar(std::string str){
 }
 
 std::string Digitar::getCode(){
-  return this->str;
+  return "\t" + this->str;
 }

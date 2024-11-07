@@ -11,4 +11,8 @@ int main(){
   Lexico lexico;
   std::cout << lexico.getCode() << std::endl;
 
+  std::string out = "#include <iostream>\n\nint main(){\n" + lexico.getCode() + "}"; 
+  
+  std::ofstream ofs ("output.cc", std::ofstream::out);
+  ofs << out;
 }

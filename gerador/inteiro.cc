@@ -8,5 +8,5 @@ Inteiro::Inteiro(std::string str){
 }
 
 std::string Inteiro::getCode(){
-  return this->str;
+  return "\t" + this->str;
 }

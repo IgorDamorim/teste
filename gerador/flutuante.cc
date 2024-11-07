@@ -8,5 +8,5 @@ Flutuante::Flutuante(std::string str){
 }
 
 std::string Flutuante::getCode(){
-  return this->str;
+  return "\t" + this->str;
 }

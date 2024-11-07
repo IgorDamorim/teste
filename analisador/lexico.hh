@@ -9,6 +9,8 @@
 #include "../gerador/digitar.hh"
 #include "../gerador/imprimir.hh"
 #include "../gerador/inicializacao.hh"
+#include "../gerador/banana.hh"
+#include "../gerador/para.hh"
 #include <cstring>
 #include <fstream>
 #include <string>
