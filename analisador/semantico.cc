@@ -281,7 +281,7 @@ void Semantico::check(std::string str){
 }
 
 Semantico::Semantico(){
-  std::ifstream file("test.txt");
+  std::ifstream file("input.txt");
   
   std::string line;
 

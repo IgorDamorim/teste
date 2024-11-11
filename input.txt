@@ -3,6 +3,7 @@ inteiro xk = 666;
 banana b;
 flutuante k;
 xk = 999;
+b = "GNU/Linux";
 se (a == 1) { imprimir ("Olá pessoal\n"); } senao { imprimir (xk); }
 imprimir ("olá mundo!\n");
 xk = 9;

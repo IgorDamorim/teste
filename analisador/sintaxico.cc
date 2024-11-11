@@ -34,7 +34,7 @@ void Sintaxico::check(std::string str){
 }
 
 Sintaxico::Sintaxico(){
-  std::ifstream file("test.txt");
+  std::ifstream file("input.txt");
   
   std::string line;
   

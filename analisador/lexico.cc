@@ -32,7 +32,7 @@ void Lexico::check(std::string str){
 }
 
 Lexico::Lexico(){
-  std::ifstream file("test.txt");
+  std::ifstream file("input.txt");
   std::string line;
 
   while(getline(file, line)){
