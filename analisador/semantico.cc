@@ -209,13 +209,55 @@ void Semantico::check(std::string str){
   } else if (std::regex_search(str, m, std::regex("digitar\\s+\\([A-Za-z0-9]+\\)\\;"))){
 
     gerador = new Digitar(str);
-    this->str = this->str + gerador->getCode() + "\n";
 
+    if(std::regex_search(str, m, std::regex("digitar\\s+\\(\"[^\"]*\"\\)"))){
+      this->str = this->str + gerador->getCode() + "\n";
+    } else {
+      int start, end; 
+      for(int i = 0; i < str.length(); i++){
+	if(str[i] == '('){
+	  start = i+1;
+	}
+	if (str[i] == ')'){
+	  end = i;
+	}
+      }
+      str.erase(end, str.length());
+      str.erase(0, start);
+      str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
+      if(count(inteiro.begin(), inteiro.end(), str) || count(flutuante.begin(), flutuante.end(), str) || count(banana.begin(), banana.end(), str)){
+	this->str = this->str + gerador->getCode() + "\n";
+      } else {
+	std::cout << "Variável de digitar não foi declarada" << std::endl;
+      }   
+    }
+    
   } else if (std::regex_search(str, m, std::regex("imprimir\\s+\\([^)]*\\)\\;"))){
 
     gerador = new Imprimir(str);
-    this->str = this->str + gerador->getCode() + "\n";
-      
+
+    if(std::regex_search(str, m, std::regex("imprimir\\s+\\(\"[^\"]*\"\\)"))){
+      this->str = this->str + gerador->getCode() + "\n";
+    } else {
+      int start, end; 
+      for(int i = 0; i < str.length(); i++){
+	if(str[i] == '('){
+	  start = i+1;
+	}
+	if (str[i] == ')'){
+	  end = i;
+	}
+      }
+      str.erase(end, str.length());
+      str.erase(0, start);
+      str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
+      if(count(inteiro.begin(), inteiro.end(), str) || count(flutuante.begin(), flutuante.end(), str) || count(banana.begin(), banana.end(), str)){
+	this->str = this->str + gerador->getCode() + "\n";
+      } else {
+	std::cout << "Variável de imprimir não foi declarada" << std::endl;
+      }   
+    }
+    
   } else if (std::regex_search(str, m, std::regex("[A-Za-z]+\\s+=\\s+[A-Za-z0-9]+;"))){
 
     gerador = new Inicializacao(str);
