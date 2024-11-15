@@ -15,4 +15,8 @@ int main(){
   
   std::ofstream ofs ("output.cc", std::ofstream::out);
   ofs << out;
+
+  remove("tabeladeSimbolosInteiro.txt");
+  remove("tabeladeSimbolosFlutuante.txt");
+  remove("tabeladeSimbolosBanana.txt");
 }

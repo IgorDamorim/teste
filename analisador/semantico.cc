@@ -2,6 +2,35 @@
 
 void Semantico::check(std::string str){
 
+  std::string line;
+  
+  std::ifstream fileInteiro("tabeladeSimbolosInteiro.txt");
+  
+  while(getline(fileInteiro, line)){
+    line.erase(remove_if(line.begin(), line.end(), isspace), line.end()); 
+    if(!count(inteiro.begin(), inteiro.end(), line)){
+      inteiro.push_back(line);
+    }
+  }
+
+  std::ifstream fileFlutuante("tabeladeSimbolosFlutuante.txt");
+  
+  while(getline(fileFlutuante, line)){
+    line.erase(remove_if(line.begin(), line.end(), isspace), line.end()); 
+    if(!count(flutuante.begin(), flutuante.end(), line)){
+      flutuante.push_back(line);
+    }
+  }
+
+  std::ifstream fileBanana("tabeladeSimbolosBanana.txt");
+  
+  while(getline(fileBanana, line)){
+    line.erase(remove_if(line.begin(), line.end(), isspace), line.end()); 
+    if(!count(banana.begin(), banana.end(), line)){
+      banana.push_back(line);
+    }
+  }
+  
   if (std::regex_search(str, m, std::regex("^para\\s+\\(inteiro\\s+[A-Za-z]+\\s+=\\s+[0-9]+;\\s+[A-Za-z]+\\s+<\\s+[0-9]+;\\s+[A-Za-z]+\\+\\+\\)\\s+\\{[^}]*\\}$"))){
 
     gerador = new Para(str);
@@ -210,9 +239,6 @@ void Semantico::check(std::string str){
 
     gerador = new Digitar(str);
 
-    if(std::regex_search(str, m, std::regex("digitar\\s+\\(\"[^\"]*\"\\)"))){
-      this->str = this->str + gerador->getCode() + "\n";
-    } else {
       int start, end; 
       for(int i = 0; i < str.length(); i++){
 	if(str[i] == '('){
@@ -230,8 +256,7 @@ void Semantico::check(std::string str){
       } else {
 	std::cout << "Variável de digitar não foi declarada" << std::endl;
       }   
-    }
-    
+      
   } else if (std::regex_search(str, m, std::regex("imprimir\\s+\\([^)]*\\)\\;"))){
 
     gerador = new Imprimir(str);
@@ -320,6 +345,24 @@ void Semantico::check(std::string str){
     std::cout << "\nErro" << std::endl;
   }
 
+  std::ofstream ofsInteiro ("tabeladeSimbolosInteiro.txt", std::ofstream::out);
+
+  for (int i = 0; i < inteiro.size(); i++){
+    ofsInteiro << inteiro[i] << "\n"; 
+  }
+
+  std::ofstream ofsFlutuante ("tabeladeSimbolosFlutuante.txt", std::ofstream::out);
+
+  for (int i = 0; i < flutuante.size(); i++){
+    ofsFlutuante << flutuante[i] << "\n"; 
+  }
+
+  std::ofstream ofsBanana ("tabeladeSimbolosBanana.txt", std::ofstream::out);
+
+  for (int i = 0; i < banana.size(); i++){
+    ofsBanana << banana[i] << "\n"; 
+  }
+  
 }
 
 Semantico::Semantico(){
