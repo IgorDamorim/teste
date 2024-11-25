@@ -30,7 +30,7 @@ void Semantico::check(std::string str){
       banana.push_back(line);
     }
   }
-  
+  //VERIFICADOR 'PARA'
   if (std::regex_search(str, m, std::regex("^para\\s+\\(inteiro\\s+[A-Za-z]+\\s+=\\s+[0-9]+;\\s+[A-Za-z]+\\s+<\\s+[0-9]+;\\s+[A-Za-z]+\\+\\+\\)\\s+\\{[^}]*\\}$"))){
 
     gerador = new Para(str);
@@ -82,6 +82,7 @@ void Semantico::check(std::string str){
     }
     tmp2.erase(remove_if(tmp2.begin(), tmp2.end(), isspace), tmp2.end());
     
+    //VALIDAÇÃO DE VARIAVEIS
     if(tmp0 == tmp1){
       if(tmp1 == tmp2){
 	this->str = this->str + gerador->getCode() + "\n";
@@ -92,6 +93,7 @@ void Semantico::check(std::string str){
       std::cout << "Erro no para" << std::endl;
     }
   
+  //VERIFICADOR 'INTEIRO'
   } else if (std::regex_search(str, m, std::regex ("inteiro\\s+[A-Za-z]+\\s+=\\s+[0-9]+\\;|inteiro\\s+[A-Za-z]+\\;"))){
 
     gerador = new Inteiro(str);
@@ -104,8 +106,10 @@ void Semantico::check(std::string str){
     }
     str.erase(remove_if(str.begin(), str.end(), isspace), str.end());
     
+    //VALIDAÇÃO VARIAVEL INTEIRO // DUPLICIDADE
     if(count(inteiro.begin(), inteiro.end(), str) || count(flutuante.begin(), flutuante.end(), str) || count(banana.begin(), banana.end(), str)){
       std::cout << "Variável já foi declarada" << std::endl;
+    //SE NAO ESTIVER DECLARADA ESTA ELEGIVEL
     } else {
       inteiro.push_back(str);
       this->str = this->str + gerador->getCode() + "\n";
